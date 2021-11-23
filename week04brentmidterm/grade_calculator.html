@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Convert Number Grades to Letter Grades</title>
+    <link rel="stylesheet" href="grade_calculator.css">
+</head>
+<body>
+    <main>
+        <h1>Convert Number Grades to Letter Grades</h1>
+       <script>
+let numberGrade = null
+let letterGrade = null
+while (true) {
+    let input = prompt("Enter Number Grade from 0 through 100\nEnter 999 to end entries");
+    numberGrade = parseFloat(input);
+    if (input === "999") {
+        break
+    }
+    const inputIsInvalid = numberGrade > 100 || numberGrade < 0 || isNaN(numberGrade)
+    if (inputIsInvalid) {
+       alert(`You entered ${input}.\nEntry must range from 0 through 100`)
+    }
+    
+    // GRADING
+    if (numberGrade >= 88) {
+        letterGrade = "A"
+    }
+    else if (numberGrade >= 80) {
+        letterGrade = "B"
+    }
+    else if (numberGrade >= 68) {
+        letterGrade = "C"
+    }
+    else if (numberGrade >= 60) {
+        letterGrade = "D"
+    }
+    else if (numberGrade < 60) {
+        letterGrade = "F"
+    }
+
+    alert(`Number Grade = ${numberGrade}\nLetter Grade = ${letterGrade}`);
+}
+
+const html = `<p><label>numberGrade: </label>${numberGrade}</p>
+<p><label>Letter: </label>${letterGrade.toFixed(2)}</p>`;
+document.write(html);
+</script>
+    </main>
+</body>
+</html>
